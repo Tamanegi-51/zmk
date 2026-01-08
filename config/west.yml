@@ -14,3 +14,8 @@ manifest:
       path: zmk-config-lhp24lite
   self:
     path: zmk
+
+# Trigger build
+manifest:
+  remotes:
+    ...
