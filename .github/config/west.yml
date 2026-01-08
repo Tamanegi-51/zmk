@@ -1,0 +1,16 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: tamanegi
+      url-base: https://github.com/Tamanegi-51
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+    - name: config
+      remote: tamanegi
+      revision: main
+      path: zmk-config-lhp24lite
+  self:
+    path: zmk
