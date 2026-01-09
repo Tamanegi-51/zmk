@@ -20,11 +20,11 @@ jobs:
       minor: ${{ steps.release.outputs.minor }}
       patch: ${{ steps.release.outputs.patch }}
     steps:
-      - uses: googleapis/release-please-action@v4
-        id: release
-        with:
-          token: ${{ secrets.ZMK_RELEASE_PLEASE_TOKEN }}
-          target-branch: ${{ github.ref_name }}
+     - name: Release Please
+ 　　　 uses: googleapis/release-please-action@v4
+ 　　　 with:
+    　　token: ${{ secrets.GITHUB_TOKEN }}
+
 
   release-new-version:
     name: Release new version
