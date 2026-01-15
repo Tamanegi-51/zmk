@@ -42,11 +42,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Build firmware
-        uses: zmkfirmware/zmk-build-action@v1
-        with:
-          shield: ${{ matrix.shield }}
-          board: ${{ matrix.board }}
+     - name: Build firmware
+ 　　　 uses: zmkfirmware/zmk-build@v1
+ 　　　 with:
+   　 shield: ${{ matrix.shield }}
+   　　 board: ${{ matrix.board }}
+
 
 
       - name: Checkout
