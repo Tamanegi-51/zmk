@@ -9,14 +9,13 @@ on:
   workflow_call:
     inputs:
       build_matrix_path:
-        
-      　description: "Path to the build matrix file"
-        default: "build.yaml"
+        description: "Path to the build matrix file"
+        default: "build.yml"
         required: false
         type: string
       config_path:
         description: "Path to the config directory"
-        default: "config"
+        default: "zmk-config-lhp24lite"
         required: false
         type: string
       fallback_binary:
