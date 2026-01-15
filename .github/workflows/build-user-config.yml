@@ -6,30 +6,7 @@ on:
       - "zmk-config-lhp24lite/**"
       - ".github/workflows/**"
 
-  workflow_call:
-    inputs:
-      build_matrix_path:
-        description: "Path to the build matrix file"
-        default: "build.yml"
-        required: false
-        type: string
-      config_path:
-        description: "Path to the config directory"
-        default: "zmk-config-lhp24lite"
-        required: false
-        type: string
-      fallback_binary:
-        description: "Fallback binary format, if no *.uf2 file was built"
-        default: "bin"
-        required: false
-        type: string
-      archive_name:
-        description: "Archive output file name"
-        default: "firmware"
-        required: false
-        type: string
-
-　　jobs:
+jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -47,8 +24,6 @@ on:
         with:
           shield: ${{ matrix.shield }}
           board: ${{ matrix.board }}
-
-
 
 
       - name: Checkout
