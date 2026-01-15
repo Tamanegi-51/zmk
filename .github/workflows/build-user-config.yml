@@ -30,19 +30,24 @@ on:
         type: string
 
 jobs:
-  matrix:
-    runs-on: ubuntu-22.04
-    name: Fetch Build Keyboards
-    outputs:
-      build_matrix: ${{ env.build_matrix }}
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - shield: lhp14_lite_rp2040
+            board: nice_nano_v2
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Fetch Build Matrix
-        run: |
-          echo "build_matrix=$(yq -oj -I0 '${{ inputs.build_matrix_path }}')" >> $GITHUB_ENV
-          yq -oj "${{ inputs.build_matrix_path }}"
+      - name: Build firmware
+        uses: zmkfirmware/zmk-build-action@v1
+        with:
+          shield: ${{ matrix.shield }}
+          board: ${{ matrix.board }}
+
 
   build:
     runs-on: ubuntu-latest
